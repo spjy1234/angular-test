@@ -1,0 +1,42 @@
+<h2>Users</h2>
+
+<!--<div-->
+<!--  infiniteScroll-->
+<!--  [infiniteScrollDistance]="1"-->
+<!--  [infiniteScrollThrottle]="500"-->
+<!--  (scrolled)="scrollDn()"-->
+<!--&gt;-->
+<!--  <div *ngFor="let us of newUser" class="di ">-->
+<!--    <p id="i">{{us.id}}. 이름: {{us.firstName}} {{us.maidenName}} {{us.lastName}}</p>-->
+<!--    <p><img src="{{us.image}}" alt="image"></p>-->
+<!--    <p>ID: {{us.username}}</p>-->
+<!--    <p>PASSWORD: {{us.password}}</p>-->
+<!--    <p>나이: {{us.age}}</p>-->
+<!--    <p>성별: {{us.gender}}</p>-->
+<!--    <p>생년월일: {{us.birthDate}}</p>-->
+<!--    <p>키: {{us.height}}, 몸무게: {{us.weight}}, 혈액형: {{us.bloodGroup}}</p>-->
+<!--    <p>주소: {{us.address.address}}, {{us.address.city}}, {{us.address.state}}, 우편번호: {{us.address.postalCode}}</p>-->
+<!--    <p>회사: {{us.company.name}}, 부서: {{us.company.department}}, 직업: {{us.company.title}}</p>-->
+<!--    <p>e-mail: {{us.email}}</p>-->
+<!--    <p>Tel: {{us.phone}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="wrapper">
+  <div class="users-cards-wrap"
+       infiniteScroll
+       [infiniteScrollDistance]="1"
+       [infiniteScrollThrottle]="300"
+       (scrolled)="scrollDn()">
+    <div class="users-card-wrap" *ngFor="let users of newUser">
+      <div class="users-card" (click)="putClick(users)">
+        <div class="users-card-img-container">
+          <img class="users-card-img" src="{{ users.image }}" alt="thumbnail">
+        </div>
+        <div class="users-card-title">
+          {{users.firstName}} {{users.maidenName}} {{users.lastName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

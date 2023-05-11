@@ -1,0 +1,35 @@
+<h2>Products</h2>
+
+<!--<div-->
+<!--  infiniteScroll-->
+<!--  [infiniteScrollDistance]="1"-->
+<!--  [infiniteScrollThrottle]="500"-->
+<!--  (scrolled)="scrollDn()">-->
+<!--  <div *ngFor="let pro of newProduct" class="di">-->
+<!--    <p id="i">{{pro.id}}. 제품 명: {{pro.title}}</p>-->
+<!--    <p><img src="{{pro.thumbnail}}" alt="tumbnail" width="319" height="400"></p>-->
+<!--    <p>제품소개: {{pro.description}}</p>-->
+<!--    <p>카테고리: {{pro.category}}</p>-->
+<!--    <p>브랜드: {{pro.brand}}</p>-->
+<!--    <p>가격: {{pro.price | currency}}, 할인율: {{pro.discountPercentage}}%</p>-->
+<!--    <p>평점: {{pro.rating}} , 재고: {{pro.stock}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="wrapper">
+  <div class="product-cards-wrap"
+       infiniteScroll
+       [infiniteScrollDistance]="1"
+       [infiniteScrollThrottle]="300"
+       (scrolled)="scrollDn()">
+    <div class="product-card-wrap" *ngFor="let product of newProduct">
+      <div routerLink="/productsDetail" class="product-card" (click)="putClick(product)">
+        <div class="product-card-img-container">
+          <img class="product-card-img" src="{{ product.thumbnail }}" alt="thumbnail">
+        </div>
+        <div class="product-card-title">
+          {{ product.title }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

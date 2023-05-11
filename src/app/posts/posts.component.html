@@ -1,0 +1,41 @@
+<h2>Posts</h2>
+<table>
+  <thead>
+  <tr>
+    <th class="header">제목</th>
+    <th class="header">태그</th>
+    <th class="header">좋아요</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let posts of post">
+    <td routerLink="/postsDetail" class="title" (click)="putClick(posts)">{{posts.id}}. {{posts.title}}</td>
+    <td class="center">{{posts.tags}}</td>
+    <td class="center">{{posts.reactions}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<!--<app-posts-detail [postData]="itemPost"></app-posts-detail>-->
+
+
+
+
+
+
+
+
+<!--<div class="wrapper">-->
+<!--  <div *ngFor="let po of newPost" class="di">-->
+<!--    <p id="i">{{po.id}}. {{po.title}}</p>-->
+<!--    <p id="n">내용: {{po.body}}</p>-->
+<!--    <p>tag: {{po.tags}}</p>-->
+<!--    <p>추천: {{po.reactions}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<mat-paginator [length]="length"-->
+<!--               [pageSize]="pageSize"-->
+<!--               aria-label="Select page"-->
+<!--               [showFirstLastButtons]="true"-->
+<!--               (page)="pageGet($event)"-->
+<!--&gt;</mat-paginator>-->
