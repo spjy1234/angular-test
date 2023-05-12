@@ -1,0 +1,43 @@
+<div *ngIf="post">
+  <h1>Detail Post</h1>
+
+  <div class="post">
+    <div class="post-title">{{post.title}}</div>
+    <div class="post-body">{{post.body}}</div>
+    <div class="post-bottom">tag: {{post.tags}}</div>
+    <div class="post-bottom">♥ : {{post.reactions}}</div>
+  </div>
+</div>
+
+<div *ngIf="product">
+  <h1>ProductsDetail</h1>
+
+  <div class="product">
+    <div class="product-title">{{product.title}}</div>
+    <div ><img class="product-img" src="{{product.thumbnail}}" alt="tumbnail"></div>
+    <div class="product-body">{{product.description}}</div>
+    <div class="product-bottom">카테고리: {{product.category}}</div>
+    <div class="product-bottom">브랜드: {{product.brand}}</div>
+    <div class="product-bottom">가격: {{product.price | currency}}, 할인율: {{product.discountPercentage}}%</div>
+    <div class="product-bottom">평점: {{product.rating}} , 재고: {{product.stock}}</div>
+  </div>
+</div>
+
+<div *ngIf="user">
+  <h1>UsersDetail</h1>
+
+  <div class="user">
+    <div><img class="user-img" src="{{user.image}}" alt="image"></div>
+    <div class="user-name"> 이름: {{user.firstName}} {{user.maidenName}} {{user.lastName}}</div>
+    <div class="user-AgeBirthDateGender">나이: {{user.age}}, 생년월일: {{user.birthDate}}, 성별: {{user.gender}}</div>
+    <div class="user-IdPw">ID: {{user.username}}</div>
+    <div class="user-IdPw">PASSWORD: {{user.password}}</div>
+    <div class="user-body">키: {{user.height}}, 몸무게: {{user.weight}}, 혈액형: {{user.bloodGroup}}</div>
+    <div class="user-body">주소: {{user.address.address}}, {{user.address.city}}, {{user.address.state}}, 우편번호: {{user.address.postalCode}}</div>
+    <div class="user-body">회사: {{user.company.name}}, 부서: {{user.company.department}}, 직업: {{user.company.title}}</div>
+    <div class="user-bottom">e-mail: {{user.email}}</div>
+    <div class="user-bottom">Tel: {{user.phone}}</div>
+  </div>
+</div>
+
+<div class="back" (click)="goBack()">되돌아가기</div>

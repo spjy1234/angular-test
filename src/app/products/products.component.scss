@@ -2,46 +2,35 @@ h2{
   margin-top: 50px;
 }
 
-.wrapper{
+.product{
   width: 100%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+  padding: 20px 20px;
 }
 
-.product-cards-wrap{
+.infinite{
   display: flex;
-  flex-flow: wrap row;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.product-card-wrap{
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+.product-cards{
+  padding: 10px 10px;
 }
 
 .product-card{
-  display: flex;
-  flex-direction: column;
-  min-height: 250px;
-  width: 200px;
-  border: 1px solid black;
   cursor: pointer;
+  border: 1px solid black;
+  height: 260px;
+  width: 220px;
 }
 
 .product-card-img{
-  padding: 10px;
-  width: 180px;
+  padding: 10px 30px;
+  width: 160px;
   height: 200px;
-  position: relative;
 }
 
 .product-card-title{
-  padding: 5px;
-  font-size: 15px;
-  border-top: 1px solid black;
-  height: 35px;
   text-align: center;
+  border-top: 1px solid black;
 }
-

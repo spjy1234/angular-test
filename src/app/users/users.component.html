@@ -22,15 +22,15 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="wrapper">
-  <div class="users-cards-wrap"
+<div class="users">
+  <div class="infinite"
        infiniteScroll
        [infiniteScrollDistance]="1"
        [infiniteScrollThrottle]="300"
        (scrolled)="scrollDn()">
-    <div class="users-card-wrap" *ngFor="let users of newUser">
+    <div class="users-cards" *ngFor="let users of newUser">
       <div class="users-card" (click)="putClick(users)">
-        <div class="users-card-img-container">
+        <div>
           <img class="users-card-img" src="{{ users.image }}" alt="thumbnail">
         </div>
         <div class="users-card-title">

@@ -2,48 +2,35 @@ h2{
   margin-top: 50px;
 }
 
-.wrapper{
-  width: 100%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+.users{
+  padding: 20px 20px;
 }
 
-.users-cards-wrap{
+.infinite{
   display: flex;
-  flex-flow: wrap row;
-  justify-content: flex-start;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.users-card-wrap{
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+.users-cards{
+  padding: 10px 10px;
 }
 
 .users-card{
-  display: flex;
-  flex-direction: column;
-  height: 360px;
-  width: 320px;
-  border: 1px solid black;
   cursor: pointer;
+  height: 310px;
+  width: 260px;
+  border: 1px solid black;
 }
 
 .users-card-img{
-  padding: 10px;
-  width: 300px;
-  height: 300px;
-  position: relative;
+  padding: 5px 20px;
+  height: 260px;
+  width: 220px;
 }
 
 .users-card-title{
   padding: 5px;
-  font-size: 15px;
-  height: 25px;
-  border-top: 1px solid black;
   text-align: center;
+  border-top: 1px solid black;
 }
-
-

@@ -32,13 +32,9 @@ export class PostsComponent implements OnInit{
       })
   }
 
-  putClick(event: any){
-    this.itemPost = event;
-    this.router.navigateByUrl('/postsDetail', {state: {event}});
+  putClick(posts: any){
+    this.router.navigateByUrl('/detail', {state: {posts}});
 
-    // console.log(this.router.navigateByUrl('/postsDetail', {state: {event}}));
-    // console.log(typeof this.itemPost);
-    // console.log(this.itemPost);
   }
 
   // pageGet(event: any ){

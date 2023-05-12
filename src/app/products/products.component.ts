@@ -35,8 +35,8 @@ export class ProductsComponent implements OnInit, DoCheck{
     this.index++;
   }
 
-  putClick(event: any){
-    this.router.navigateByUrl('/productsDetail',{state:{event}})
+  putClick(products: any){
+    this.router.navigateByUrl('/detail',{state:{products}})
     // console.log(event)
   }
 }

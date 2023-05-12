@@ -32,8 +32,8 @@ export class UsersComponent implements OnInit{
     this.index++;
   }
 
-  putClick(event: any){
-    this.router.navigateByUrl('/usersDetail', {state:{event}})
+  putClick(users: any){
+    this.router.navigateByUrl('/detail', {state:{users}})
     // console.log(event)
   }
 }

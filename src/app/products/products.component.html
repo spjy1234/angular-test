@@ -15,15 +15,16 @@
 <!--    <p>평점: {{pro.rating}} , 재고: {{pro.stock}}</p>-->
 <!--  </div>-->
 <!--</div>-->
-<div class="wrapper">
-  <div class="product-cards-wrap"
+
+<div class="product">
+  <div class="infinite"
        infiniteScroll
        [infiniteScrollDistance]="1"
        [infiniteScrollThrottle]="300"
        (scrolled)="scrollDn()">
-    <div class="product-card-wrap" *ngFor="let product of newProduct">
+    <div class="product-cards" *ngFor="let product of newProduct">
       <div routerLink="/productsDetail" class="product-card" (click)="putClick(product)">
-        <div class="product-card-img-container">
+        <div>
           <img class="product-card-img" src="{{ product.thumbnail }}" alt="thumbnail">
         </div>
         <div class="product-card-title">
