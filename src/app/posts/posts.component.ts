@@ -12,8 +12,6 @@ import { Router } from "@angular/router";
 })
 
 export class PostsComponent implements OnInit{
-  itemPost: object;
-
   post: Post[] = [];
   newPost: Post[] = [];
   pageSize: number = 5;
@@ -34,7 +32,6 @@ export class PostsComponent implements OnInit{
 
   putClick(posts: any){
     this.router.navigateByUrl('/detail', {state: {posts}});
-
   }
 
   // pageGet(event: any ){
