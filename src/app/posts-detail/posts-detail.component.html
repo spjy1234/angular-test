@@ -1,0 +1,12 @@
+<h1>Detail Post</h1>
+<div *ngIf="posts$ | async as post">
+  <div class="post">
+    <div class="post-title">{{post.title}}</div>
+    <div class="post-body">{{post.body}}</div>
+    <div class="post-bottom">tag: {{post.tags}}</div>
+    <div class="post-bottom">♥ : {{post.reactions}}</div>
+  </div>
+</div>
+<div>
+  <div class="back" (click)="goBack()">뒤로가기</div>
+</div>

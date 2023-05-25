@@ -27,8 +27,9 @@ export class ProductsComponent implements OnInit, DoCheck{
     this.apiService.getProductApi()
       .subscribe((data: any) => {
         this.product = data.products;
-        this.newProduct = [...this.newProduct, ...this.product.slice(this.index, this.pageSize)]
-        this.index++;})
+        this.newProduct = [...this.newProduct, ...this.product.slice(this.index, this.pageSize)];
+        this.index++;
+      })
   }
   scrollDn(){
     this.newProduct = [...this.newProduct, ...this.product.slice(this.index * this.pageSize, this.index * this.pageSize + this.pageSize)]

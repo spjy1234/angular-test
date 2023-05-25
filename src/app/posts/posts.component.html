@@ -1,28 +1,26 @@
 <h2>Posts</h2>
-<table>
+
+<table *ngIf="posts$ | async as posts">
   <thead>
-  <tr>
-    <th class="header">제목</th>
-    <th class="header">태그</th>
-    <th class="header">좋아요</th>
-  </tr>
+    <tr>
+      <th class="header">제목</th>
+      <th class="header">태그</th>
+      <th class="header">좋아요</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let posts of post">
-    <td routerLink="/postsDetail" class="title" (click)="putClick(posts)">{{posts.id}}. {{posts.title}}</td>
-    <td class="center">{{posts.tags}}</td>
-    <td class="center">{{posts.reactions}}</td>
-  </tr>
+    <tr *ngFor="let post of posts">
+      <td class="title"><a [routerLink]="['/posts', post.id]">{{post.id}}. {{post.title}}</a></td>
+      <td class="center">{{post.tags}}</td>
+      <td class="center">{{post.reactions}}</td>
+    </tr>
   </tbody>
 </table>
 
-
-
-
-
-
-
-
+<div>
+  <mat-icon class="click" (click)="leftClick()">keyboard_arrow_left</mat-icon>
+  <mat-icon class="click" (click)="rightClick()">keyboard_arrow_right</mat-icon>
+</div>
 
 <!--<div class="wrapper">-->
 <!--  <div *ngFor="let po of newPost" class="di">-->

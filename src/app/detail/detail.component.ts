@@ -25,22 +25,10 @@ export class DetailComponent implements OnInit, OnChanges{
     this.post = history.state.posts;
     this.product = history.state.products;
     this.user = history.state.users;
-    this.getApi();
-  }
-
-  getApi(){
-    this.apiService.getPostApi()
-      .subscribe((data: any) => {
-        this.dPost = data.posts
-      })
   }
 
   goBack(){
     this.location.back();
   }
 
-  rightClick(){
-    console.log(this.dPost[this.post.id-2]);
-    let i = this.dPost[this.post.id-2];
-  }
 }
