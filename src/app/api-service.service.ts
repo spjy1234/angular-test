@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Post, Posts} from "./post";
-import {Product} from "./product";
-import {User} from "./user";
+import {Product, Products} from "./product";
+import {User, Users} from "./user";
 
 import {map, Observable, tap, throwError} from "rxjs";
 import {catchError, retry} from "rxjs";
@@ -16,22 +16,30 @@ export class ApiServiceService {
   }
 
   postsUrl = 'https://dummyjson.com/posts';
-  productsUrl = 'https://dummyjson.com/products?limit=100';
-  usersUrl = 'https://dummyjson.com/users?limit=100';
+  productsUrl = 'https://dummyjson.com/products';
+  usersUrl = 'https://dummyjson.com/users';
 
-  getPostApi(getId: number) {
-    return this.http.get<Post>(this.postsUrl + `/${getId}`)
+  getPostApi(postId: number): Observable<Post> {
+    return this.http.get<Post>(this.postsUrl + `/${postId}`)
   }
 
-  getAllPost(skip: number, limit: number) {
-    return this.http.get<Posts>(`https://dummyjson.com/posts?skip=${skip}&limit=${limit}`)
+  getAllPost(skip: number, limit: number): Observable<Posts> {
+    return this.http.get<Posts>(this.postsUrl + `?skip=${skip}&limit=${limit}`)
   }
 
-  getProductApi() {
-    return this.http.get<Product>(this.productsUrl)
+  getProductApi(productId: number) {
+    return this.http.get<Product>(this.productsUrl + `/${productId}`)
   }
 
-  getUsersApi() {
-    return this.http.get<User>(this.usersUrl)
+  getAllProduct() {
+    return this.http.get<Products>(this.productsUrl + "?limit=100")
+  }
+
+  getUsersApi(userId: number) {
+    return this.http.get<User>(this.usersUrl + `/${userId}`)
+  }
+
+  getAllUser(){
+    return this.http.get<Users>(this.usersUrl + "?limit=100")
   }
 }

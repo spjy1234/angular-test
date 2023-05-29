@@ -14,8 +14,9 @@ import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DetailComponent } from './detail/detail.component';
 import { PostsDetailComponent } from './posts-detail/posts-detail.component';
+import { ProductsDetailComponent } from './products-detail/products-detail.component';
+import { UsersDetailComponent } from './users-detail/users-detail.component';
 
 
 @NgModule({
@@ -24,8 +25,9 @@ import { PostsDetailComponent } from './posts-detail/posts-detail.component';
     PostsComponent,
     UsersComponent,
     ProductsComponent,
-    DetailComponent,
     PostsDetailComponent,
+    ProductsDetailComponent,
+    UsersDetailComponent,
   ],
   imports: [
     BrowserModule,

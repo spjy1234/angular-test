@@ -29,7 +29,7 @@
        [infiniteScrollThrottle]="300"
        (scrolled)="scrollDn()">
     <div class="users-cards" *ngFor="let users of newUser">
-      <div class="users-card" (click)="putClick(users)">
+      <div class="users-card" [routerLink]="['/users', users.id]">
         <div>
           <img class="users-card-img" src="{{ users.image }}" alt="thumbnail">
         </div>

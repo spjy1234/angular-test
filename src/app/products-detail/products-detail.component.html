@@ -1,0 +1,16 @@
+<div *ngIf="product$ | async as product">
+  <h1>ProductsDetail</h1>
+
+  <div class="product">
+    <div class="product-title">{{product.title}}</div>
+    <div ><img class="product-img" src="{{product.thumbnail}}" alt="tumbnail"></div>
+    <div class="product-body">{{product.description}}</div>
+    <div class="product-bottom">카테고리: {{product.category}}</div>
+    <div class="product-bottom">브랜드: {{product.brand}}</div>
+    <div class="product-bottom">가격: {{product.price | currency}}, 할인율: {{product.discountPercentage}}%</div>
+    <div class="product-bottom">평점: {{product.rating}} , 재고: {{product.stock}}</div>
+  </div>
+</div>
+<div class="back" (click)="goBack()">
+  뒤로가기
+</div>

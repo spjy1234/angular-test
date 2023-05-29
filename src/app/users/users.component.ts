@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ApiServiceService} from "../api-service.service";
-import {User} from "../user";
+import {User, Users} from "../user";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit{
+export class UsersComponent implements OnInit, OnDestroy{
   user: User[] = [];
   newUser: User[] = [];
 
@@ -20,9 +20,13 @@ export class UsersComponent implements OnInit{
     this.getApi()
   }
 
+  ngOnDestroy() {
+    this.getApi()
+  }
+
   getApi(){
-    this.apiService.getUsersApi()
-      .subscribe((data: any) => {
+    this.apiService.getAllUser()
+      .subscribe((data) => {
         this.user = data.users;
         this.newUser = [...this.newUser, ...this.user.slice(this.index, this.pageSize)]
         this.index++;})
@@ -32,8 +36,4 @@ export class UsersComponent implements OnInit{
     this.index++;
   }
 
-  putClick(users: any){
-    this.router.navigateByUrl('/detail', {state:{users}})
-    // console.log(event)
-  }
 }

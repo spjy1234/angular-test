@@ -3,27 +3,31 @@ h1{
   text-align: center;
 }
 
-.post{
-  margin: 30px;
+.product{
+  margin-left: 120px;
+  margin-right: 120px;
   padding: 30px;
   text-align: center;
   border: 1px solid black;
 }
 
-.post-title{
-  font-size: 40px;
-  border-bottom: 1px solid black;
+.product-title{
+  font-size: 38px;
 }
 
-.post-body{
-  margin-top: 20px;
-  margin-bottom: 20px;
+.product-img{
+  height: 480px;
+  width: 480px;
+  padding: 20px;
+}
+
+.product-body{
   font-size: 30px;
 }
 
-.post-bottom{
+.product-bottom{
+  padding: 8px;
   font-size: 22px;
-  padding: 5px;
 }
 
 .back{

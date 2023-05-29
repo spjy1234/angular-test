@@ -27,3 +27,10 @@ export interface User {
   ssn: string,
   userAgent: string
 }
+
+export interface Users{
+  users: User[],
+  total: number,
+  skip: number,
+  limit: number
+}

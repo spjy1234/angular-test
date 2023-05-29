@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./posts.component.scss']
 })
 
-export class PostsComponent implements OnInit, OnChanges {
+export class PostsComponent implements OnInit{
 
   post$: Observable<Post[]> | undefined;
   newPost: Post[] = [];
@@ -28,13 +28,8 @@ export class PostsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.posts$ = this.apiService.getAllPost(this.skip = this.num * this.limit, this.limit).pipe(
-      tap(i => console.log(i)),
-      map(res => res.posts.reverse(),
-      ))
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-
+      map(res => res.posts.reverse())
+    )
   }
 
   leftClick() {
@@ -45,7 +40,6 @@ export class PostsComponent implements OnInit, OnChanges {
       tap(i => console.log(i)),
       map(res => res.posts.reverse(),
       ))
-    console.log(this.num)
   }
 
   rightClick() {
@@ -56,17 +50,6 @@ export class PostsComponent implements OnInit, OnChanges {
       tap(i => console.log(i)),
       map(res => res.posts.reverse(),
       ))
-    console.log(this.num)
   }
 
-
-  // putClick(posts: any) {
-  //   this.router.navigateByUrl('/detail', {state: {posts}});
-  // }
-
-  // pageGet(event: any ){
-  //   console.log(event)
-  //   this.newPost = this.post.slice(event.pageIndex * event.limit, event.pageIndex * event.limit + event.limit)
-  // }
-  protected readonly onclick = onclick;
 }
