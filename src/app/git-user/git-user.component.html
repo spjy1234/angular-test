@@ -1,0 +1,15 @@
+<h2>GitUsers</h2>
+
+<div class="infinite"
+     infiniteScroll
+     [infiniteScrollThrottle]="500"
+     [infiniteScrollDistance]="1"
+     (scrolled)="scrollDn()">
+  <div class="git-users-cards" *ngFor="let users of newGitUsers">
+    <div class="git-user-card" [routerLink]="['/gitUser', users.login]">
+      <div><img class="git-user-image" src="{{users.avatar_url}}" alt="user-img"></div>
+      <div class="git-user-name">ID: {{users.login}}</div>
+    </div>
+  </div>
+</div>
+

@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
   styleUrls: ['./products-detail.component.scss']
 })
 export class ProductsDetailComponent implements OnInit{
-  product$: Observable<Product>
+  product$: Observable<Product> | undefined;
   productId: number
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute, private location: Location) {
     this.productId = Number(this.route.snapshot.paramMap.get("id"))

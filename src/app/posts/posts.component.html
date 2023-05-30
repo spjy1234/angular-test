@@ -18,21 +18,7 @@
 </table>
 
 <div>
-  <mat-icon class="click" (click)="leftClick()">keyboard_arrow_left</mat-icon>
-  <mat-icon class="click" (click)="rightClick()">keyboard_arrow_right</mat-icon>
+  <mat-icon class="click" (click)="eventClick('left')">keyboard_arrow_left</mat-icon>
+  <mat-icon class="click" (click)="eventClick('right')">keyboard_arrow_right</mat-icon>
 </div>
 
-<!--<div class="wrapper">-->
-<!--  <div *ngFor="let po of newPost" class="di">-->
-<!--    <p id="i">{{po.id}}. {{po.title}}</p>-->
-<!--    <p id="n">내용: {{po.body}}</p>-->
-<!--    <p>tag: {{po.tags}}</p>-->
-<!--    <p>추천: {{po.reactions}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<mat-paginator [length]="length"-->
-<!--               [pageSize]="pageSize"-->
-<!--               aria-label="Select page"-->
-<!--               [showFirstLastButtons]="true"-->
-<!--               (page)="pageGet($event)"-->
-<!--&gt;</mat-paginator>-->

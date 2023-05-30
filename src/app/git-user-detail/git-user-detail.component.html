@@ -1,0 +1,19 @@
+<h1>GitUser</h1>
+
+<div class="git-user" *ngIf="gitUser$ | async as gitUser">
+  <div><img class="git-user-img" src="{{gitUser.avatar_url}}" alt="user-image"></div>
+  <div class="git-user-name" *ngIf="gitUser.name">Name: {{gitUser.name}}</div>
+  <div class="git-user-name">NickName: {{gitUser.login}}</div>
+  <div class="git-user-mid" *ngIf="gitUser.location">Location: {{gitUser.location}}</div>
+  <div class="git-user-mid" *ngIf="gitUser.company">Company: {{gitUser.company}}</div>
+  <div class="git-user-follow">Followers:{{gitUser.followers}}, Following: {{gitUser.following}}</div>
+  <div class="git-user-gisrepo">repos: {{gitUser.public_repos}}, Gists: {{gitUser.public_gists}}</div>
+  <div class="git-user-date">Created: {{gitUser.created_at}}</div>
+  <div class="git-user-date">Updated: {{gitUser.updated_at}}</div>
+  <div class="git-user-bottom" *ngIf="gitUser.blog">Blog: <a href="{{gitUser.blog}}">{{gitUser.blog}}</a></div>
+  <div class="git-user-bottom" >Github: <a href="{{gitUser.html_url}}">{{gitUser.html_url}}</a></div>
+  <div class="git-user-bottom" *ngIf="gitUser.bio">Bio: {{gitUser.bio}}</div>
+</div>
+<div class="goBack" (click)="goBack()">
+  되돌아가기
+</div>

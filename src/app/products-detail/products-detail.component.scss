@@ -16,9 +16,10 @@ h1{
 }
 
 .product-img{
-  height: 480px;
-  width: 480px;
-  padding: 20px;
+  max-width: 80%;
+  width: auto;
+  min-height: 480px;
+
 }
 
 .product-body{
@@ -31,7 +32,7 @@ h1{
 }
 
 .back{
-  padding-top: 20px;
   cursor: pointer;
+  padding-top: 20px;
   width: 85px;
 }

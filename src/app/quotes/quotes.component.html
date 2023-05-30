@@ -1,0 +1,13 @@
+<h2>Quotes</h2>
+
+<div *ngIf="quotes$ | async as quotes">
+  <div *ngFor="let quote of quotes" class="quote">
+    <div>{{quote.id}}. {{quote.author}}</div>
+    <div>{{quote.quote}}</div>
+  </div>
+  <div>
+    <mat-icon (click)="eventClick('left')">arrow_left</mat-icon>
+    <mat-icon (click)="eventClick('right')">arrow_right</mat-icon>
+  </div>
+</div>
+
