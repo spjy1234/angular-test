@@ -24,10 +24,8 @@ export class QuotesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.quotes$ = this.apiService.getAllQuotes(this.skip * this.limit, this.limit).pipe(
       pluck("quotes"),
-      map(i => i.reverse()),
-      tap(i => console.log(i))
+      map(i => i.reverse())
     )
-
   }
 
   ngOnDestroy() {
@@ -35,7 +33,6 @@ export class QuotesComponent implements OnInit, OnDestroy {
   }
 
   eventClick(event: string) {
-
     if (event == "left") {
       if (this.skip < 9) {
         this.skip += 1

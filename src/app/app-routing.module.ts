@@ -10,6 +10,7 @@ import {UsersDetailComponent} from "./users-detail/users-detail.component";
 import {QuotesComponent} from "./quotes/quotes.component";
 import {GitUserComponent} from "./git-user/git-user.component";
 import {GitUserDetailComponent} from "./git-user-detail/git-user-detail.component";
+import {TestComponent} from "./test/test.component";
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "users/:id", component: UsersDetailComponent},
   {path: "quotes", component: QuotesComponent},
   {path: "gitUser", component: GitUserComponent},
-  {path: "gitUser/:login", component: GitUserDetailComponent}
+  {path: "gitUser/:login", component: GitUserDetailComponent},
+  {path: "test", component: TestComponent}
 ];
 
 @NgModule({

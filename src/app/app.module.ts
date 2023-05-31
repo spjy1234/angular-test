@@ -19,6 +19,8 @@ import {UsersDetailComponent} from './users-detail/users-detail.component';
 import {QuotesComponent} from './quotes/quotes.component';
 import { GitUserComponent } from './git-user/git-user.component';
 import { GitUserDetailComponent } from './git-user-detail/git-user-detail.component';
+import { TestComponent } from './test/test.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { GitUserDetailComponent } from './git-user-detail/git-user-detail.compon
     QuotesComponent,
     GitUserComponent,
     GitUserDetailComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { GitUserDetailComponent } from './git-user-detail/git-user-detail.compon
     MatPaginatorModule,
     MatButtonModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

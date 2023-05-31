@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {GitUser} from "../git-user";
 import {ApiServiceService} from "../api-service.service";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {group} from "@angular/animations";
 
 @Component({
   selector: 'app-git-user',
@@ -11,31 +12,31 @@ import {Observable} from "rxjs";
 export class GitUserComponent implements OnInit, OnDestroy {
   gitUsers: GitUser[];
   newGitUsers: GitUser[] = [];
-  index: number = 0;
-  pageSize: number = 9;
+  subscription!: Subscription;
+
+  skip: number = 0;
+  limit: number = 9;
 
   constructor(private apiService: ApiServiceService) {
   }
 
   ngOnInit() {
-    this.getApi()
+    this.subscription = this.apiService.getAllGitUsers().subscribe(
+      data => {
+        this.gitUsers = data;
+        this.newGitUsers = [...this.newGitUsers, ...this.gitUsers.slice(this.skip, this.limit)]
+        this.skip++;
+      }
+    )
   }
 
   ngOnDestroy() {
-    this.getApi()
-  }
-
-  getApi() {
-    this.apiService.getAllGitUsers()
-      .subscribe((i) => {
-        this.gitUsers = i
-        this.newGitUsers = [...this.newGitUsers, ...this.gitUsers.slice(this.index, this.pageSize)]
-        this.index++;
-      })
+    this.subscription.unsubscribe()
   }
 
   scrollDn() {
-    this.newGitUsers = [...this.newGitUsers, ...this.gitUsers.slice(this.index * this.pageSize, this.index * this.pageSize + this.pageSize)]
-    this.index++;
+    console.log("scrolled")
+    this.newGitUsers = [...this.newGitUsers, ...this.gitUsers.slice(this.skip * this.limit, this.skip * this.limit + this.limit)]
+    this.skip++;
   }
 }

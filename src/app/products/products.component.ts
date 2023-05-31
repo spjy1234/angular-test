@@ -2,7 +2,7 @@ import {Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
 import {Product, Products} from "../product";
 import {ApiServiceService} from "../api-service.service";
 import {Route, Router} from "@angular/router";
-import {map, Observable} from "rxjs";
+import {map, Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -12,6 +12,7 @@ import {map, Observable} from "rxjs";
 export class ProductsComponent implements OnInit, OnDestroy {
   product: Product[] = [];
   newProduct: Product[] = [];
+  subscription!: Subscription;
 
   skip: number = 0;
   limit: number = 7;
@@ -20,27 +21,23 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getApi()
-
+    this.subscription = this.apiService.getAllProduct().subscribe(
+      data => {
+        this.product = data.products;
+        this.newProduct = [...this.newProduct, ...this.product.slice(this.skip, this.limit)]
+        this.skip++;
+      }
+    )
   }
 
   ngOnDestroy() {
-    this.getApi()
-  }
-
-  getApi() {
-    this.apiService.getAllProduct()
-      .subscribe(data => {
-        this.product = data.products;
-        this.newProduct = [...this.newProduct, ...this.product.slice(this.skip, this.limit)];
-        this.skip++;
-      })
+    this.subscription.unsubscribe()
   }
 
 
   scrollDn() {
     console.log("scrolled")
-    this.newProduct = [...this.newProduct, ...this.product.slice(this.skip*this.limit, this.skip*this.limit+this.limit)]
+    this.newProduct = [...this.newProduct, ...this.product.slice(this.skip * this.limit, this.skip * this.limit + this.limit)]
     this.skip++;
   }
 

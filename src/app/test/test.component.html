@@ -1,6 +1,10 @@
-<div *ngIf="user$ | async as user">
-  <h1>UsersDetail</h1>
+<h2>Test</h2>
 
+<div>
+  <button (click)="clickEvent()">test</button>
+</div>
+
+<div *ngIf="user$ | async as user">
   <div class="user">
     <div><img class="user-img" src="{{user.image}}" alt="image"></div>
     <div class="user-name"> 이름: {{user.firstName}} {{user.maidenName}} {{user.lastName}}</div>
@@ -15,5 +19,3 @@
     <div class="user-bottom">Tel: {{user.phone}}</div>
   </div>
 </div>
-
-<div class="back" (click)="goBack()">되돌아가기</div>
