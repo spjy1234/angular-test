@@ -56,4 +56,8 @@ export class ApiServiceService {
   getGitUser(login: string){
     return this.http.get<GitLogin>(this.gitUserUrl + `/${login}`)
   }
+
+  getTest() {
+    return this.http.get<Users[]>(this.usersUrl + "?limit=100")
+  }
 }
